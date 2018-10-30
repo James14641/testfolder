@@ -1,0 +1,42 @@
+I like the git username
+
+There is some very good code here and some good use of functions. 
+
+I downloaded Jupyter notebooks so that I could convert your files to python
+
+I would strongly recommend NOT using notebooks but if you do then do not include notebook files (*.ipynb) to a git repository. You should only include ascii files in a git repository so include python files.
+
+You should make git commits more often with informative commit messages.
+
+You need comments describing what boundary conditions you are using. I would recommend using periodic boundary conditions.
+
+All functions should have doc strings. 
+
+Re-read the good programming practices at:
+https://www.dropbox.com/s/yba7pj7woyvv7hs/goodCode.pdf
+and follow them. Put questions on the Slack discussion site if necessary.
+
+There should be comments describing what equation you are solving and with what numerical methods.
+
+There is quite a lot of code duplication, for example in calculating the parameters at the beginning of functions. Consider grouping these parameters into a class or data structure that is passed around as one entity.
+
+There is also code duplication due to your use of notebooks. In the Python file 
+import numpy as np
+import matplotlib.pyplot as plt
+is repeated a few times.
+
+I put plt.show() into your Plotting function so that I could see the plots.
+
+It is not very clear how I would go about increasing the resolution or running for longer (for example). I guess that I would put some different numbers into the function calls:
+X = Main(121,601,0.5,1,0.001,"lax_newton",0.5)
+but I would need to do some detective work to find out how. It would be useful if Main had a doc-string so that I could do
+help(Main)
+to find out how to use it.
+
+The Python convention is thtat the function main does not have arguments. You could call your Main  function perhaps 
+solveBurger
+instead.
+
+You should not store the results from every time step. If you are using a two time level scheme you only need ever store two time levels at a time.
+
+It would be useful to compare different numerical methods on the same plot with legends.
